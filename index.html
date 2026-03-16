@@ -24,7 +24,7 @@
       <li><a href="library.html?proc=recon">Reconstructive</a></li>
       <li><a href="#about">About</a></li>
     </ul>
-    <a href="https://substack.com" target="_blank" class="nav-cta">Newsletter</a>
+    <a href="https://www.youtube.com/@surgical.vision?sub_confirmation=1" target="_blank" class="nav-cta">Subscribe</a>
   </nav>
 
   <!-- HERO -->
@@ -40,16 +40,20 @@
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
+        <span class="hero-stat-num">Basic</span>
+        <span class="hero-stat-label">to Advanced</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">4K</span>
+        <span class="hero-stat-label">HD operative footage</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">Step</span>
+        <span class="hero-stat-label">by step</span>
+      </div>
+      <div class="hero-stat">
         <span class="hero-stat-num" id="stat-videos">—</span>
         <span class="hero-stat-label">Training videos</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">Free</span>
-        <span class="hero-stat-label">Always</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">0</span>
-        <span class="hero-stat-label">Pharma ties</span>
       </div>
     </div>
   </section>
@@ -104,15 +108,15 @@
 
   <hr class="divider">
 
-  <!-- NEWSLETTER -->
+  <!-- SUBSCRIBE -->
   <div class="newsletter-band">
-    <p class="section-label" style="text-align:center;">Substack</p>
-    <h2>Go deeper with every case.</h2>
-    <p>Procedure write-ups, technique notes, and case breakdowns — delivered when a new video drops.</p>
-    <div class="email-row">
-      <input type="email" id="nl-email" placeholder="your@email.com">
-      <button onclick="subscribeNewsletter()">Subscribe</button>
-    </div>
+    <p class="section-label" style="text-align:center;">YouTube</p>
+    <h2>Never miss a new procedure.</h2>
+    <p>Subscribe to get notified every time a new training video drops — free, always.</p>
+    <a href="https://www.youtube.com/@surgical.vision?sub_confirmation=1" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;margin-top:8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+      Subscribe on YouTube
+    </a>
   </div>
 
   <!-- FOOTER -->
@@ -132,19 +136,12 @@
     // populate stat
     document.getElementById('stat-videos').textContent = SV_DATA.videos.length + '+';
 
-    // featured = most recently published
     const sorted = [...SV_DATA.videos].sort((a,b) => b.publishedDate.localeCompare(a.publishedDate));
     const featured = sorted[0];
     const recent   = sorted.slice(1, 4);
 
     document.getElementById('featured-container').innerHTML = buildFeaturedCard(featured);
     document.getElementById('recent-grid').innerHTML = recent.map(v => buildVideoCard(v)).join('');
-
-    function subscribeNewsletter() {
-      const email = document.getElementById('nl-email').value;
-      if (!email) return;
-      window.open('https://substack.com', '_blank');
-    }
   </script>
 </body>
 </html>
